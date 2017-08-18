@@ -26,6 +26,7 @@
             renderForm() {
                 return(<div className="note">
                          <textarea></textarea>
+                         <button onClick={this.save}>SAVE</button>
                        </div>)
             },
             renderDisplay() {
@@ -40,9 +41,12 @@
                     )
             },
             // logic for which should be displayed
+            // same as an if/else statement. react syntax
             render() {
-
+                return (this.state.editing) ? this.renderForm()
+                                            : this.renderDisplay()
             }
+
         })
 
         ReactDOM.render(<Note>Hello World</Note>,
